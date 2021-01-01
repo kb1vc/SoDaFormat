@@ -64,11 +64,11 @@ It will also write doxygen output that starts at /usr/local/share/sodaformat/doc
 
 ## Testing and Using it all
 
-Take a look at the CMakeLists.txt file and FormatExample.cxx in the examples
+Take a look at the CMakeLists.txt file and FormatExample.cxx in the example
 directory.  If the installation has gone right, then you should be able to do this from this directory.
 
 ```
-cd examples
+cd example
 mkdir build
 cd build
 cmake ../
