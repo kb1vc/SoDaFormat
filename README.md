@@ -1,5 +1,7 @@
 # SoDa::Format print stuff.
 
+ To get to doxygen generated documentation that is more detailed 
+ than the following summary, go [here](https://kb1vc.github.io/SoDaFormat/)
 
  SoDa::Format is a class that allows intelligent formatting of
  integer, floating point, string, and character values into
