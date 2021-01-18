@@ -94,8 +94,13 @@ namespace SoDa {
       // white TV) or astronomers.  It is 2021 -- time to use the metric system, even
       // in backwaters that still cling to the 16th century.
 
-      {
+      // it is possible that the value is 0.  if so, just jump skip the rest of this.
+      if(v == 0.0) {
+	ss << "   0" << separator << std::setw(frac_precision) << std::setfill('0') << 0 << "e0";
+      }
+      else {
 	// get the sign
+
 	bool is_neg = (v < 0.0);
 	double av = fabs(v); 
 	// first find the log base 10.	

@@ -1,4 +1,4 @@
-#include <SoDaFormat/Format.hxx>
+#include <SoDa/Format.hxx>
 #include <iostream>
 
 int main() {
