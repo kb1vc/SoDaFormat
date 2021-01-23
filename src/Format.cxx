@@ -69,6 +69,7 @@ namespace SoDa {
 
   Format & Format::addF(double v, char fmt, unsigned int width, unsigned int frac_precision) {
     std::stringstream ss;    
+    
     switch (fmt) {
     case 'f':
       // fixed floating point format
@@ -100,9 +101,14 @@ namespace SoDa {
       }
       else {
 	// get the sign
-
 	bool is_neg = (v < 0.0);
-	double av = fabs(v); 
+
+	// Now do some rounding.
+	// how many significant digits are we going to get?
+	int sig_digs = 3 + frac_precision;
+	v = roundToSigDigs(v, sig_digs);
+	double av = fabs(v);
+	 
 	// first find the log base 10.	
 	double log_10 = log10(av);
 	// now remember the sign
@@ -218,7 +224,39 @@ namespace SoDa {
   const std::string & Format::str(bool check_for_filled_out) const {
     return fmt_string; 
   }
+
+  double Format::roundToSigDigs(double v, int sig_digits) {
+    double ret = v;
+    double significance_threshold = pow(10.0, sig_digits) - 0.5;
+    double shift_correction = 1.0;
+
+    if(ret > significance_threshold) {
+      // divide down until we're ready to round
+      while(ret > significance_threshold) {
+	ret = ret * 0.1;
+	shift_correction *= 10.0;
+      }
+    }
+    else if(ret < significance_threshold) {
+      while(ret < significance_threshold) {
+	ret = ret * 10.0;
+	shift_correction *= 0.1;
+      }
+      ret = ret * 0.1;
+      shift_correction *= 10.0;
+    }
+
+    // now calculate the round increment.
+    double fpart = ret - floor(ret);
+    if(fpart >= 0.5) ret = ret + 0.5;
+      
+    ret = trunc(ret);
+
+    return ret * shift_correction;
+  }
 }
+
+
 
 std::ostream & operator<<(std::ostream & os, const SoDa::Format & f) {
   os << f.str(true);

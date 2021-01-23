@@ -78,7 +78,14 @@ int main() {
     ef = ef * 0.1;
     std:: cout << "\n\n";
   }
-  
+
+  // now exercise the rounding
+  double base_val = 111111.0;
+  double incr = 0.001;
+  for(double v = 0.0; v <= 4.0; v += incr) {
+    std::cout << SoDa::Format("RT %0 %1\n").addF(v, 'f', 8, 6).addF(base_val + v, 'e', 3);
+  }
+    
   SoDa::Format oops("%0\n");
 
   std::cout << oops.addI(3).addI(4);

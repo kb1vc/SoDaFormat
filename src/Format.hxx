@@ -7,7 +7,7 @@
 /*
 BSD 2-Clause License
 
-Copyright (c) 2020, Matt Reilly - kb1vc
+Copyright (c) 2020, 2021, Matt Reilly - kb1vc
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -465,6 +465,8 @@ namespace SoDa {
     
   protected:
 
+    double roundToSigDigs(double v, int sig_digits);
+    
     const std::string & getOrig() const { return orig_fmt_string; }
     
     std::string fmt_string;
