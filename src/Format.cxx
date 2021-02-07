@@ -57,16 +57,24 @@ namespace SoDa {
     return * this; 
   }
 
-  Format & Format::addU(unsigned int v, unsigned int w) {
+  Format & Format::addU(unsigned int v, char fmt, unsigned int w) {
     std::stringstream ss;
+    if(fmt == 'x') ss << "0x"; 
+
     if(w != 0) {
       ss << std::setw(w); 
     }
-    ss << v; 
-    insertField(ss.str()); 
-    return *this; 
+    
+    if(fmt == 'd') {
+      ss << v; 
+    }
+    else {
+      ss << std::setfill('0') << std::hex << v; 
+    }
+    insertField(ss.str());     
+    return *this;     
   }
-
+  
   Format & Format::addF(double v, char fmt, unsigned int width, unsigned int frac_precision) {
     std::stringstream ss;    
     

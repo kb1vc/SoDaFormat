@@ -12,12 +12,15 @@ int main() {
 			    "let's print 5 again %0\n"
 			    "%1 looks much better in engineering notation %2\n"
 			    "Sometimes I just want to print a %% sign like this %0%%\n"
-			    "I think that shirt he's wearing fits %3 to a %4\n")
+			    "I think that shirt he's wearing fits %3 to a %4\n"
+			    "We can print hex too. Decimal %5 is %6 in hex\n")
     .addI(i)
     .addF(ef, 'f')    
     .addF(ef, 'e')
     .addS(fred)
-    .addC(c);
+    .addC(c)
+    .addU(55, 'd', 4)
+    .addU(55, 'x', 4);  
   
   //! [printing some stuff]
 

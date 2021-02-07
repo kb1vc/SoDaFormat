@@ -294,6 +294,7 @@ namespace SoDa {
      * @brief insert an unsigned integer into the format string
      * 
      * @param v the unsigned integer value
+     * @param fmt 'x' for hex, 'd' for decimal
      * @param width the minimum width of the field. 
      * @return a reference to this SoDa::Format object to allow 
      * chaining of method invocations. 
@@ -303,7 +304,7 @@ namespace SoDa {
      * the specified width, the width parameter will be ignored and 
      * the field will be as wide as necessary to accommodate the value. 
      */
-    Format & addU(unsigned int v, unsigned int width = 0);
+    Format & addU(unsigned int v, char fmt = 'd', unsigned int width = 0);    
 
 
     /**
