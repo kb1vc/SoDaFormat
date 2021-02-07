@@ -12,12 +12,12 @@ ENDIF()
 PROJECT(SoDaFormat)
 
 SET(SoDaFormat_VERSION_MAJOR 1)
-SET(SoDaFormat_VERSION_MINOR 0)
+SET(SoDaFormat_VERSION_MINOR 1)
 SET(SoDaFormat_VERSION_PATCH 0)
 SET(SoDaFormat_VERSION "${SoDaFormat_VERSION_MAJOR}.${SoDaFormat_VERSION_MINOR}.${SoDaFormat_VERSION_PATCH}")
 
-set(SoDaFormat_PACKAGE_DEFZRIPTION 
-  "SoDaFormat is a library for building simple transceivers on the USRP platform."
+set(SoDaFormat_PACKAGE_DESCRIPTION 
+  "SoDaFormat provides simple string formatting for C++ that includes \"engineering notation\" for floating point values"
 )
 
 IF(BUILD_RPM)
