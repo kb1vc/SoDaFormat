@@ -10,7 +10,7 @@ install(TARGETS sodaformat DESTINATION lib)
 
 # Export header files that are required to build loadable modules
 
-install(FILES Format.hxx DESTINATION "include/SoDa")
+install(FILES ../include/Format.hxx DESTINATION "include/SoDa")
 
 add_executable(Format_Test Format_Test.cxx)
 target_link_libraries(Format_Test sodaformat)
