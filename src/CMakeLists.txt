@@ -5,7 +5,13 @@ set(FORMAT_SRCS
 	Format.cxx
 	)
 
-add_library(sodaformat SHARED ${FORMAT_SRCS})
+
+IF(MACOSX) 
+  add_library(sodaformat SHARED ${FORMAT_SRCS})
+ELSE()
+  add_library(sodaformat STATIC ${FORMAT_SRCS})
+ENDIF()
+
 install(TARGETS sodaformat DESTINATION lib)
 
 # Export header files that are required to build loadable modules
